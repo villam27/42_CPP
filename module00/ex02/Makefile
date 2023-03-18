@@ -6,15 +6,16 @@
 #    By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 15:53:30 by alboudje          #+#    #+#              #
-#    Updated: 2023/03/14 16:02:29 by alboudje         ###   ########.fr        #
+#    Updated: 2023/03/18 11:27:55 by alboudje         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 			= 	megaphone
+NAME 			= 	dreamjob
 CC 				= 	g++
 
-SRC				= 	megaphone.cpp
-INCLUDES	 	= 	
+SRC				= 	tests.cpp \
+					Account.cpp
+INCLUDES	 	=	Account.hpp	
 
 OBJ 			= 	${SRC:.cpp=.o}
 CFLAGS 			= 	-Wall -Wextra -Werror -std=c++98
