@@ -6,7 +6,7 @@
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:00:11 by alboudje          #+#    #+#             */
-/*   Updated: 2023/03/18 10:13:19 by alboudje         ###   ########.fr       */
+/*   Updated: 2023/03/21 09:37:28 by alboudje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,11 @@ void	search_contact(Phonebook phonebook)
 	std::cin >> id;
 	if (std::cin.eof())
 		std::exit(EXIT_SUCCESS);
+	if (!std::isdigit(id.c_str()[0]))
+	{
+		std::cerr << "Please enter a number" << std::endl;
+		return ;
+	}
 	idn = std::atoi(id.c_str());
 	phonebook.search_contact(idn);
 }
