@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/18 15:25:02 by alboudje          #+#    #+#             */
-/*   Updated: 2023/03/30 10:19:32 by alboudje         ###   ########.fr       */
+/*   Created: 2023/03/18 15:21:00 by alboudje          #+#    #+#             */
+/*   Updated: 2023/03/30 15:14:38 by alboudje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "zombie.hpp"
+#include "Harl.hpp"
 
-Zombie::Zombie(const std::string name)
+int	main(void)
 {
-	this->_name = name;
-	std::cout << _name << ": created" << std::endl;
-}
+	Harl harl;
 
-Zombie::~Zombie()
-{
-	std::cout << _name << ": destroyed" << std::endl;
-}
+	harl.complain("DEBUG");
+	harl.complain("INFO");
+	harl.complain("WARNING");
+	harl.complain("ERROR");
+	harl.complain("TEST");
 
-void	Zombie::announce()
-{
-	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
-void	Zombie::setName(const std::string name)
-{
-	this->_name = name;
+	return (0);
 }

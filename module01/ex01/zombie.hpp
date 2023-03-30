@@ -6,7 +6,7 @@
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 15:22:16 by alboudje          #+#    #+#             */
-/*   Updated: 2023/03/18 15:51:56 by alboudje         ###   ########.fr       */
+/*   Updated: 2023/03/30 10:19:24 by alboudje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ public:
 	~Zombie();
 
 	void	announce(void);
-	void	setName(std::string name);
+	void	setName(const std::string name);
 };
 
 Zombie*	zombieHorde(int N, std::string name);
