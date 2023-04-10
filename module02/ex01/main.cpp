@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/10 12:39:38 by alboudje          #+#    #+#             */
-/*   Updated: 2023/04/10 13:30:34 by alboudje         ###   ########.fr       */
+/*   Created: 2023/04/10 13:15:35 by alboudje          #+#    #+#             */
+/*   Updated: 2023/04/10 13:16:04 by alboudje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-#define FIXED_HPP
+#include <iostream>
+#include "Fixed.hpp"
 
-class Fixed
+int main( void )
 {
-	public:
-		Fixed();
-		Fixed(const Fixed &copy);
-		~Fixed();
-		Fixed &operator = (const Fixed &copy);
+	Fixed a;
+	Fixed b( a );
+	Fixed c;
 
-		int		getRawBits(void) const;
-		void	setRawBits(int const raw);
-	
-	private:
-		int					_raw;
-		static const int	_fractional;
-};
-
-#endif //FIXED_HPP
+	c = b;
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
+	return 0;
+}

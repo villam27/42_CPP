@@ -6,7 +6,7 @@
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 12:47:26 by alboudje          #+#    #+#             */
-/*   Updated: 2023/04/10 13:31:12 by alboudje         ###   ########.fr       */
+/*   Updated: 2023/04/10 13:38:23 by alboudje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,18 @@ Fixed::Fixed(const Fixed &copy)
 	std::cout << "Copy constructor called" << std::endl;
 	setRawBits(copy.getRawBits());
 }
+
+Fixed::Fixed(const int raw)
+{
+	std::cout << "Int constructor called" << std::endl;
+	_raw = (raw << _fractional);
+}
+
+Fixed::Fixed(const float raw)
+{
+	std::cout << "Float constructor called" << std::endl;
+}
+
 
 Fixed::~Fixed()
 {

@@ -6,7 +6,7 @@
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 12:39:38 by alboudje          #+#    #+#             */
-/*   Updated: 2023/04/10 13:30:34 by alboudje         ###   ########.fr       */
+/*   Updated: 2023/04/10 13:33:02 by alboudje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ class Fixed
 {
 	public:
 		Fixed();
+		Fixed(const int raw);
+		Fixed(const float raw);
 		Fixed(const Fixed &copy);
 		~Fixed();
 		Fixed &operator = (const Fixed &copy);
