@@ -6,7 +6,7 @@
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 15:21:00 by alboudje          #+#    #+#             */
-/*   Updated: 2023/03/30 15:14:38 by alboudje         ###   ########.fr       */
+/*   Updated: 2023/04/10 10:29:46 by alboudje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,5 @@ int	main(void)
 	harl.complain("WARNING");
 	harl.complain("ERROR");
 	harl.complain("TEST");
-
 	return (0);
 }

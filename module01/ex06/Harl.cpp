@@ -6,7 +6,7 @@
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 14:52:44 by alboudje          #+#    #+#             */
-/*   Updated: 2023/04/10 10:00:19 by alboudje         ###   ########.fr       */
+/*   Updated: 2023/04/10 10:30:53 by alboudje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,20 +58,20 @@ void	Harl::complainFilter(const std::string level)
 {
 	int	levelId;
 
-	levelId = getLevel(level);
+	levelId = this->getLevel(level);
 	switch (levelId)
 	{
 		case DEBUG:
-			complain(levelId);
+			this->complain(levelId);
 			break;
 		case INFO:
-			complain(levelId);
+			this->complain(levelId);
 			break;
 		case WARNING:
-			complain(levelId);
+			this->complain(levelId);
 			break;
 		case ERROR:
-			complain(levelId);
+			this->complain(levelId);
 			break;
 		default:
 			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
