@@ -6,18 +6,20 @@
 #    By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 15:53:30 by alboudje          #+#    #+#              #
-#    Updated: 2023/04/12 17:20:34 by alboudje         ###   ########.fr        #
+#    Updated: 2023/04/12 17:20:27 by alboudje         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 			= 	ScavTrap.out
+NAME 			= 	FragTrap.out
 CC 				= 	c++
 
 SRC				= 	main.cpp \
 					ClapTrap.cpp \
-					ScavTrap.cpp
+					ScavTrap.cpp \
+					FragTrap.cpp
 INCLUDES	 	= 	ClapTrap.hpp \
-					ScavTrap.hpp
+					ScavTrap.hpp \
+					FragTrap.hpp
 
 OBJ 			= 	${SRC:.cpp=.o}
 CFLAGS 			= 	-Wall -Wextra -Werror -std=c++98
