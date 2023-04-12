@@ -6,15 +6,16 @@
 #    By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 15:53:30 by alboudje          #+#    #+#              #
-#    Updated: 2023/04/12 10:49:48 by alboudje         ###   ########.fr        #
+#    Updated: 2023/04/12 11:16:29 by alboudje         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 			= 	claptrap.out
 CC 				= 	c++
 
-SRC				= 	main.cpp
-INCLUDES	 	= 	
+SRC				= 	main.cpp \
+					Claptrap.cpp
+INCLUDES	 	= 	Claptrap.hpp
 
 OBJ 			= 	${SRC:.cpp=.o}
 CFLAGS 			= 	-Wall -Wextra -Werror -std=c++98
