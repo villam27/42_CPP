@@ -1,8 +1,8 @@
-#include "Claptrap.hpp"
+#include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap()
 {
-	std::cout << "Constructor Called" << std::endl;
+	std::cout << "Constructor Called For ClapTrap" << std::endl;
 	_hitPoints = 10;
 	_energyPoints = 10;
 	_attackDamage = 10;
@@ -10,7 +10,7 @@ ClapTrap::ClapTrap()
 
 ClapTrap::ClapTrap(const std::string name) : _name(name)
 {
-	std::cout << "Constructor Called" << std::endl;
+	std::cout << "String Constructor Called For ClapTrap" << std::endl;
 	_hitPoints = 10;
 	_energyPoints = 10;
 	_attackDamage = 10;
@@ -18,12 +18,13 @@ ClapTrap::ClapTrap(const std::string name) : _name(name)
 
 ClapTrap::ClapTrap(const ClapTrap &src)
 {
+	std::cout << "Copy Constructor Called For ClapTrap" << std::endl;
 	*this = src;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor Called" << std::endl;
+	std::cout << "Destructor Called for ClapTrap" << std::endl;
 }
 
 ClapTrap &	ClapTrap::operator=(ClapTrap const &rhs)
@@ -37,6 +38,11 @@ ClapTrap &	ClapTrap::operator=(ClapTrap const &rhs)
 
 void	ClapTrap::attack(const std::string &target)
 {
+	if (_hitPoints == 0)
+	{
+		std::cout << "ClapTrap " << getName() << " not enough hp" << std::endl;
+		return ;
+	}
 	if (_energyPoints == 0)
 	{
 		std::cout << "ClapTrap " << getName() << " not enough energy points" << std::endl;
@@ -60,15 +66,20 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	std::cout << "ClapTrap " << getName() << " take " << amount << " points of damage, his new life is " << getHitPts() << std::endl;
 }
 
-void	ClapTrap::beRepaired(unsigned int amount)
+void	ClapTrap::beRepaired(unsigned int amout)
 {
+	if (_hitPoints == 0)
+	{
+		std::cout << "ClapTrap " << getName() << " not enough hp" << std::endl;
+		return ;
+	}
 	if (_energyPoints == 0)
 	{
 		std::cout << "ClapTrap " << getName() << " not enough energy points" << std::endl;
 		return ;
 	}
 	_energyPoints--;
-	_hitPoints += amount;
+	_hitPoints += amout;
 	std::cout << "ClapTrap " << getName() << " take repair himself, his new life is " << getHitPts() << std::endl;
 }
 

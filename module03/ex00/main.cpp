@@ -6,11 +6,11 @@
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:00:11 by alboudje          #+#    #+#             */
-/*   Updated: 2023/04/12 13:14:12 by alboudje         ###   ########.fr       */
+/*   Updated: 2023/04/12 16:16:24 by alboudje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Claptrap.hpp"
+#include "ClapTrap.hpp"
 
 int	main(void)
 {
