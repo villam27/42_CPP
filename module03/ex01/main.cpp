@@ -6,16 +6,16 @@
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:00:11 by alboudje          #+#    #+#             */
-/*   Updated: 2023/04/12 13:14:12 by alboudje         ###   ########.fr       */
+/*   Updated: 2023/04/12 13:40:24 by alboudje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Claptrap.hpp"
+#include "ScavTrap.hpp"
 
 int	main(void)
 {
-	ClapTrap	test1("test1");
-	ClapTrap	test2("test2");
+	ScavTrap	test1("test1");
+	ScavTrap	test2("test2");
 
 	test1.attack(test2.getName());
 	test2.takeDamage(test1.getAttackDam());
