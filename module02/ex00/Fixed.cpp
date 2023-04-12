@@ -6,7 +6,7 @@
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 12:47:26 by alboudje          #+#    #+#             */
-/*   Updated: 2023/04/10 13:31:12 by alboudje         ###   ########.fr       */
+/*   Updated: 2023/04/12 10:03:08 by alboudje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ Fixed &Fixed::operator = (const Fixed &copy)
 	setRawBits(copy.getRawBits());
 	return (*this);
 }
-
 
 int	Fixed::getRawBits(void) const
 {
