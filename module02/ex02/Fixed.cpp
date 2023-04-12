@@ -6,7 +6,7 @@
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 12:47:26 by alboudje          #+#    #+#             */
-/*   Updated: 2023/04/11 14:34:26 by alboudje         ###   ########.fr       */
+/*   Updated: 2023/04/12 09:54:31 by alboudje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,28 +85,28 @@ bool	Fixed::operator!=(const Fixed &fixed)
 
 Fixed	Fixed::operator+(const Fixed &fixed)
 {
-	Fixed	value(_raw + fixed._raw);
+	Fixed	value(toFloat() * fixed.toFloat());
 
 	return (value);
 }
 
 Fixed	Fixed::operator-(const Fixed &fixed)
 {
-	Fixed	value(_raw - fixed._raw);
+	Fixed	value(toFloat() * fixed.toFloat());
 
 	return (value);
 }
 
 Fixed	Fixed::operator*(const Fixed &fixed)
 {
-	Fixed	value(_raw * fixed._raw);
+	Fixed	value(toFloat() * fixed.toFloat());
 
 	return (value);
 }
 
 Fixed	Fixed::operator/(const Fixed &fixed)
 {
-	Fixed	value(_raw / fixed._raw);
+	Fixed	value(toFloat() * fixed.toFloat());
 
 	return (value);
 }
@@ -139,36 +139,36 @@ Fixed	Fixed::operator--(int)
 	return (value);	
 }
 
-const Fixed	Fixed::min(const Fixed &nb1, const Fixed &nb2)
+const Fixed	Fixed::min(const Fixed &nbr1, const Fixed &nbr2)
 {
-    if (nb1.getRawBits() < nb2.getRawBits())
-        return nb1;
+    if (nbr1.getRawBits() < nbr2.getRawBits())
+        return (nbr1);
     else
-        return nb2;
+        return (nbr2);
 }
 
-Fixed	Fixed::min(Fixed &nb1, Fixed &nb2)
+Fixed	Fixed::min(Fixed &nbr1, Fixed &nbr2)
 {
-    if (nb1.getRawBits() < nb2.getRawBits())
-        return nb1;
+    if (nbr1.getRawBits() < nbr2.getRawBits())
+        return (nbr1);
     else
-        return nb2;
+        return (nbr2);
 }
 
-const Fixed	Fixed::max(const Fixed &nb1, const Fixed &nb2)
+const Fixed	Fixed::max(const Fixed &nbr1, const Fixed &nbr2)
 {
-    if (nb1.getRawBits() > nb2.getRawBits())
-        return nb1;
+    if (nbr1.getRawBits() > nbr2.getRawBits())
+        return (nbr1);
     else
-        return nb2;
+        return (nbr2);
 }
 
-Fixed	Fixed::max(Fixed &nb1, Fixed &nb2)
+Fixed	Fixed::max(Fixed &nbr1, Fixed &nbr2)
 {
-	if (nb1.getRawBits() > nb2.getRawBits())
-	    return nb1;
+	if (nbr1.getRawBits() > nbr2.getRawBits())
+	    return (nbr1);
 	else
-	    return nb2;
+	    return (nbr2);
 }
 
 float	Fixed::toFloat(void) const
