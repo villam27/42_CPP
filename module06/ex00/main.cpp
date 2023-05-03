@@ -6,7 +6,7 @@
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:00:11 by alboudje          #+#    #+#             */
-/*   Updated: 2023/05/03 16:13:36 by alboudje         ###   ########.fr       */
+/*   Updated: 2023/05/03 16:22:19 by alboudje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@
 int	main(int argc, char **argv)
 {
 	(void)argc;
-	ScalarConverter::convert(argv[1]);	
+	ScalarConverter::convert(argv[1]);
 	return (0);
 }
