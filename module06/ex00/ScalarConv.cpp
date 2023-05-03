@@ -6,7 +6,7 @@
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:27:28 by alboudje          #+#    #+#             */
-/*   Updated: 2023/05/03 16:51:20 by alboudje         ###   ########.fr       */
+/*   Updated: 2023/05/03 16:53:24 by alboudje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ bool	ScalarConverter::isFloat(const std::string &literal)
 		return (true);
 	ss << literal;
 	ss >> num;
-	if (literal[literal.size() - 1] == 'f'  && literal.find(".") != std::string::npos && ss.fail() == false)
+	if (literal[literal.size() - 1] == 'f'  && literal.find(".") != std::string::npos && !ss.fail())
 		return (true);
 	return (false);
 }
@@ -83,12 +83,12 @@ bool	ScalarConverter::isDouble(const std::string &literal)
 	{
 		if ((i == 0 && literal[i] == '-'))
 			i++;
-		if (literal[i] == '.')
-			point = true;
 		if ((literal[i] < '0' || literal[i] > '9') && point)
 			return (false);
+		if (literal[i] == '.')
+			point = true;
 	}
-	if (point && ss.fail() == false)
+	if (point && !ss.fail())
 		return (true);
 	return (false);
 }
