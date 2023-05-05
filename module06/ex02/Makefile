@@ -6,16 +6,16 @@
 #    By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 15:53:30 by alboudje          #+#    #+#              #
-#    Updated: 2023/05/05 10:49:18 by alboudje         ###   ########.fr        #
+#    Updated: 2023/05/05 11:59:38 by alboudje         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 			=	serialization.out
+NAME 			=	type.out
 CC 				= 	c++
 
 SRC				=	main.cpp \
-					Serializer.cpp
-INCLUDES	 	= 	Serializer.hpp
+					Base.cpp
+INCLUDES	 	= 	Base.hpp
 
 OBJ 			= 	${SRC:.cpp=.o}
 CFLAGS 			= 	-Wall -Wextra -Werror -std=c++98
