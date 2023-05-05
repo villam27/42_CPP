@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,13 +12,13 @@
 
 #include "AForm.hpp"
 
-class ShrubberyCreationForm : public AForm
+class PresidentialPardonForm : public AForm
 {
 	public:
-		ShrubberyCreationForm(const std::string &target);
-		ShrubberyCreationForm(const ShrubberyCreationForm& copy);
-		~ShrubberyCreationForm();
-		ShrubberyCreationForm& operator=(const ShrubberyCreationForm& copy);
+		PresidentialPardonForm(const std::string &target);
+		PresidentialPardonForm(const PresidentialPardonForm &copy);
+		~PresidentialPardonForm();
+		PresidentialPardonForm& operator=(const PresidentialPardonForm &copy);
 
 		std::string getTarget() const;
 		void execute(Bureaucrat const &bureaucrat) const;

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,14 +14,16 @@
 #define FORM_HPP
 
 #include "Bureaucrat.hpp"
+#include <ctime>
+#include <cstdlib>
 
-class Form
+class AForm
 {
 	public:
-		Form(const std::string name, const unsigned signGrade, const unsigned execGrade);
-		Form(const Form& copy);
-		virtual ~Form() = 0;
-		Form& operator=(const Form& copy);
+		AForm(const std::string name, const unsigned signGrade, const unsigned execGrade);
+		AForm(const AForm& copy);
+		virtual ~AForm();
+		AForm& operator=(const AForm& copy);
 
 		const std::string	getName() const;
 		unsigned 			getIsSigned() const;
@@ -31,6 +33,7 @@ class Form
 		void				setSigned(const bool sign);
 
 		void beSigned(const Bureaucrat& bureaucrat);
+		virtual void execute(Bureaucrat const &bureaucrat) const = 0;
 		
 		class GradeTooHighException : public std::exception
 		{
@@ -54,6 +57,6 @@ class Form
 		bool				_isSigned;
 };
 
-std::ostream& operator<<(std::ostream& ostream, Form const &f);
+std::ostream& operator<<(std::ostream& ostream, AForm const &f);
 
 #endif //FORM_HPP

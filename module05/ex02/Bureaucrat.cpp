@@ -6,12 +6,12 @@
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 18:38:13 by alboudje          #+#    #+#             */
-/*   Updated: 2023/04/24 11:42:20 by alboudje         ###   ########.fr       */
+/*   Updated: 2023/05/05 15:03:46 by alboudje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat(std::string name, unsigned grade) : _name(name), _grade(150)
 {
@@ -73,10 +73,15 @@ void	Bureaucrat::decrGrade(unsigned grade)
 		_grade += grade;
 }
 
-void	Bureaucrat::signForm(Form &form)
+void	Bureaucrat::signForm(AForm &form)
 {
 	if (form.getIsSigned())
 		std::cout << form.getName() << " is already signed !" << std::endl;
 	else
 		form.beSigned(*this);
+}
+
+void	Bureaucrat::executeForm(AForm const &form)
+{
+	form.execute(*this);
 }

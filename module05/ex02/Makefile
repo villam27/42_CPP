@@ -6,7 +6,7 @@
 #    By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 15:53:30 by alboudje          #+#    #+#              #
-#    Updated: 2023/05/01 16:16:28 by alboudje         ###   ########.fr        #
+#    Updated: 2023/05/05 15:40:01 by alboudje         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,12 +15,15 @@ CC 				= 	c++
 
 SRC				= 	main.cpp \
 					Bureaucrat.cpp \
-					Form.cpp \
-					ShrubberyCreationForm.cpp
-
+					AForm.cpp \
+					ShrubberyCreationForm.cpp \
+					RobotomyRequestForm.cpp \
+					PresidentialPardonForm.cpp
 INCLUDES	 	= 	Bureaucrat.hpp \
-					Form.hpp \
-					ShrubberyCreationForm.hpp
+					AForm.hpp \
+					ShrubberyCreationForm.hpp \
+					RobotomyRequestForm.hpp \
+					PresidentialPardonForm.hpp
 
 OBJ 			= 	${SRC:.cpp=.o}
 CFLAGS 			= 	-Wall -Wextra -Werror -std=c++98
