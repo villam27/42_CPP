@@ -6,7 +6,7 @@
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:27:28 by alboudje          #+#    #+#             */
-/*   Updated: 2023/05/04 15:53:22 by alboudje         ###   ########.fr       */
+/*   Updated: 2023/05/05 10:46:31 by alboudje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ bool	ScalarConverter::isDouble(const std::string &literal, double &d)
 
 void	printDispChar(char c)
 {	
-	if (c <= 31)
+	if (c <= 31 || c == 127)
 		std::cout << "char: " << "Non displayable" << std::endl;
 	else
 		std::cout << "char: " << c << std::endl;
@@ -151,7 +151,7 @@ void	ScalarConverter::printChar(char &c)
 
 void	ScalarConverter::printInt(int &i)
 {
-	if (i < 0 || i > 255)
+	if (i < 0 || i >= 127)
 		std::cout << "char: " << "Impossible" << std::endl;
 	else
 		printDispChar(static_cast<char>(i));
