@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:07:51 by alboudje          #+#    #+#             */
-/*   Updated: 2023/05/05 11:30:51 by alboudje         ###   ########.fr       */
+/*   Updated: 2023/05/05 11:31:24 by alboudje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZER_HPP
-#define SERIALIZER_HPP
+#ifndef BASE_HPP
+#define BASE_HPP
 
 #include <iostream>
-#include <stdint.h>
 
-struct Data
+class Base
 {
-	int	i;
-};
-
-class Serializer
-{
-	private:
-		Serializer();
-
 	public:
-		static uintptr_t	serialize(Data *ptr);
-		static Data			*deserialize(uintptr_t raw);
+		virtual ~Base();
 };
 
-#endif //SERIALIZER_HPP
+#endif //BASE_HPP
