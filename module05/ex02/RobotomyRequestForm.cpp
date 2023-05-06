@@ -12,7 +12,7 @@
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string& target) : AForm("Shrubbery", 72, 45), target(target)
+RobotomyRequestForm::RobotomyRequestForm(const std::string& target) : AForm("Robotomy", 72, 45), target(target)
 {
 	std::cout << "Robotomy constructor called" << std::endl;
 }

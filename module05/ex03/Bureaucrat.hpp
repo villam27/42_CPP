@@ -6,7 +6,7 @@
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 18:31:04 by alboudje          #+#    #+#             */
-/*   Updated: 2023/05/05 14:51:04 by alboudje         ###   ########.fr       */
+/*   Updated: 2023/05/06 13:50:45 by alboudje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ class Bureaucrat
 		Bureaucrat(std::string name, unsigned grade);
 		Bureaucrat(const Bureaucrat& copy);
 		~Bureaucrat();
-		Bureaucrat		&operator=(const Bureaucrat& copy);
 	
 		std::string		getName() const;
 		unsigned int	getGrade() const;
@@ -50,8 +49,8 @@ class Bureaucrat
 		};
 	
 	private:
-		std::string		_name;
-		unsigned		_grade;
+		const std::string	_name;
+		unsigned			_grade;
 };
 
 std::ostream& operator<<(std::ostream& ostream, Bureaucrat const &b);

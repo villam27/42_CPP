@@ -12,7 +12,7 @@
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string& target) : AForm("Shrubbery", 72, 45), target(target)
+PresidentialPardonForm::PresidentialPardonForm(const std::string& target) : AForm("Presidential", 72, 45), target(target)
 {
 	std::cout << "Robotomy constructor called" << std::endl;
 }
