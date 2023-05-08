@@ -6,7 +6,7 @@
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 18:31:04 by alboudje          #+#    #+#             */
-/*   Updated: 2023/05/06 13:50:45 by alboudje         ###   ########.fr       */
+/*   Updated: 2023/05/08 10:18:51 by alboudje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ class Bureaucrat
 		Bureaucrat(std::string name, unsigned grade);
 		Bureaucrat(const Bureaucrat& copy);
 		~Bureaucrat();
+		Bureaucrat();
+		Bureaucrat& operator=(const Bureaucrat& copy);
 	
 		std::string		getName() const;
 		unsigned int	getGrade() const;

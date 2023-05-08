@@ -6,7 +6,7 @@
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 18:31:04 by alboudje          #+#    #+#             */
-/*   Updated: 2023/05/06 13:35:27 by alboudje         ###   ########.fr       */
+/*   Updated: 2023/05/08 10:16:49 by alboudje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 class Bureaucrat
 {
 	public:
+		Bureaucrat();
+		Bureaucrat& operator=(const Bureaucrat& copy);
 		Bureaucrat(std::string name, unsigned grade);
 		Bureaucrat(const Bureaucrat& copy);
 		~Bureaucrat();

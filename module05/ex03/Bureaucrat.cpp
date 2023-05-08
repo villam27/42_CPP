@@ -6,7 +6,7 @@
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 18:38:13 by alboudje          #+#    #+#             */
-/*   Updated: 2023/05/06 13:51:08 by alboudje         ###   ########.fr       */
+/*   Updated: 2023/05/08 10:17:19 by alboudje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,18 @@ Bureaucrat::Bureaucrat(const Bureaucrat& copy)  : _name(copy.getName()), _grade(
 Bureaucrat::~Bureaucrat()
 {
 	std::cout << "Destructor called" << std::endl;
+}
+
+Bureaucrat::Bureaucrat() : _name("Bureaucrat"), _grade(150)
+{
+	std::cout << "Constructor called" << std::endl;
+}
+
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& copy)
+{
+	std::cout << "Assignement op called" << std::endl;
+	_grade = copy._grade;
+	return (*this);
 }
 
 std::string Bureaucrat::getName() const
