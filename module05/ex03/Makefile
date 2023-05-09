@@ -6,11 +6,11 @@
 #    By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 15:53:30 by alboudje          #+#    #+#              #
-#    Updated: 2023/05/05 17:01:19 by alboudje         ###   ########.fr        #
+#    Updated: 2023/05/09 12:17:49 by alboudje         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 			= 	aform.out
+NAME 			= 	intern.out
 CC 				= 	c++
 
 SRC				= 	main.cpp \
