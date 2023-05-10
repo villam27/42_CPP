@@ -6,7 +6,7 @@
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:46:43 by alboudje          #+#    #+#             */
-/*   Updated: 2023/05/08 13:59:39 by alboudje         ###   ########.fr       */
+/*   Updated: 2023/05/10 09:27:20 by alboudje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ Array<T> &Array<T>::operator=(Array<T> &copy)
 {
 	if (_array)
 		delete[] _array;
-	std::cerr << "here" << std::endl;
 	_array = new(std::nothrow) T[copy._size];
 	if (!_array)
 		_size = 0;

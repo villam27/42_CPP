@@ -6,7 +6,7 @@
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 14:44:53 by alboudje          #+#    #+#             */
-/*   Updated: 2023/05/06 15:39:01 by alboudje         ###   ########.fr       */
+/*   Updated: 2023/05/10 09:31:48 by alboudje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,7 @@ void iter(T array, const unsigned size, F func)
 	if (!array)
 		return ;
 	for (unsigned i = 0; i < size; i++)
-	{
 		func(array[i]);
-	}
 }
 
 #endif

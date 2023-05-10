@@ -6,7 +6,7 @@
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 14:44:53 by alboudje          #+#    #+#             */
-/*   Updated: 2023/05/08 13:55:22 by alboudje         ###   ########.fr       */
+/*   Updated: 2023/05/10 09:26:42 by alboudje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ class Array
 		unsigned int size() const;
 
 	private:
-		T 				*_array;
 		unsigned int	_size;
+		T 				*_array;
 };
 
 #endif //ARRAY_HPP
