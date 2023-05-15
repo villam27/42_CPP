@@ -6,7 +6,7 @@
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:00:11 by alboudje          #+#    #+#             */
-/*   Updated: 2023/05/12 16:11:45 by alboudje         ###   ########.fr       */
+/*   Updated: 2023/05/15 13:20:52 by alboudje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,14 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	BitcoinExchange	btc(argv[1]);
-
-	btc.getExchange();
+	try
+	{
+		btc.getExchange();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "ERROR: " << e.what() << std::endl;
+	}
+	
 	return (0);
 }

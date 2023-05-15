@@ -6,7 +6,7 @@
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 11:37:09 by alboudje          #+#    #+#             */
-/*   Updated: 2023/05/12 16:36:09 by alboudje         ###   ########.fr       */
+/*   Updated: 2023/05/15 13:27:28 by alboudje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 BitcoinExchange::BitcoinExchange(const char *input_file)
 {
+	_date_check = false;
 	_data_file.open("data.csv");
 	_input_file.open(input_file);
 	if (!_data_file.is_open())
@@ -41,22 +42,52 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &copy)
 	return (*this);
 }
 
-std::string		*BitcoinExchange::splitDate(const std::string &date)
+int	BitcoinExchange::getDateFormat(const std::string *date_array)
 {
-	std::string			tok_array[3];
+	int					year;
+	int					month;
+	int					day;
+	std::stringstream	ss;
+	
+	if (date_array[0] == "date")
+		return (HEADER_DATE);
+	ss << date_array[0];
+	ss >> year;
+	if (ss.fail() || (year < 0 || year > 9999))
+		return (INVALID_DATE);
+	ss.clear();
+	ss << date_array[1];
+	ss >> month;
+	if (ss.fail() || (month < 0 || month > 12))
+		return (INVALID_DATE);	
+	ss.clear();
+	ss << date_array[2];
+	ss >> day;
+	if (ss.fail() || (day < 0 || day > 31))
+		return (INVALID_DATE);
+	return (VALID_DATE(year, month, day));
+}
+
+bool	BitcoinExchange::checkDate(const std::string &date, std::string *date_array)
+{
 	std::string			token;
 	std::stringstream	ss;
 	size_t				tok_nbr;
 
 	ss << date;
 	tok_nbr = 0;
-	while (std::getline(ss, token, '-') && tok_nbr < 3)
+	while (std::getline(ss, token, '-'))
 	{
-		std::cout << token << std::endl;
-		tok_array[tok_nbr] = token;
+		date_array[tok_nbr] = token;
 		tok_nbr++;
+		if (tok_nbr == 4)
+			break ;
 	}
-	return (NULL);
+	if (token == "date" && _date_check == false)
+		_date_check = true;
+	else if (tok_nbr != 3)
+		return (false);
+	return (true);
 }
 
 unsigned int	BitcoinExchange::getDateFromStr(const std::string &date)
@@ -73,7 +104,22 @@ double			BitcoinExchange::getExchangeRateFromStr(const std::string &rate)
 
 void	BitcoinExchange::insertData(const std::string *tok_array)
 {
-	splitDate(tok_array[0]);
+	std::string			date_array[3];
+	static	unsigned	line = 0;
+	int					date = 0;
+	double				ex_rate = 0;
+
+	line++;
+	std::cerr << "LINE: " << line << std::endl;
+	if (checkDate(tok_array[0], date_array) == false)
+		throw std::ios_base::failure("Date parsing error");
+	date = getDateFormat(date_array);
+	if (date == INVALID_DATE)
+		throw std::ios_base::failure("Date format error");
+	else if (date == HEADER_DATE)
+		return ;
+	ex_rate = std::strtod(tok_array[1].c_str(), NULL);
+	_map_data.insert(std::pair<unsigned int, double>(static_cast<unsigned int>(date), ex_rate));
 }
 
 void	BitcoinExchange::parseData(void)
@@ -107,4 +153,5 @@ void	BitcoinExchange::getExchange(void)
 	if (!_data_file.is_open() || !_input_file.is_open())
 		throw std::ios_base::failure("Files are not opened");
 	parseData();
+	std::cout << "Continue ..";
 }
