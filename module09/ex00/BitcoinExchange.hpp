@@ -6,7 +6,7 @@
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 10:53:09 by alboudje          #+#    #+#             */
-/*   Updated: 2023/05/15 15:16:28 by alboudje         ###   ########.fr       */
+/*   Updated: 2023/05/15 16:13:43 by alboudje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ enum ErrorLevel
 	UNDERFLOW
 };
 
+bool	is_empty(std::ifstream &file);
+
 class BitcoinExchange
 {
 private:
@@ -42,6 +44,7 @@ private:
 	std::ifstream					_input_file;
 	std::map<unsigned int, double>	_map_data;
 	bool							_date_check;
+	bool							_date_check_input;
 	bool							_current_parsing_date;
 	int								_current_date;
 	int								_current_value;

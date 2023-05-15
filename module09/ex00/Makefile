@@ -6,7 +6,7 @@
 #    By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 15:53:30 by alboudje          #+#    #+#              #
-#    Updated: 2023/05/12 15:30:43 by alboudje         ###   ########.fr        #
+#    Updated: 2023/05/15 16:21:11 by alboudje         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRC				= 	main.cpp \
 INCLUDES	 	= 	BitcoinExchange.hpp
 
 OBJ 			= 	${SRC:.cpp=.o}
-CFLAGS 			= 	-Wall -Wextra -Werror -std=c++98
+CFLAGS 			= 	-Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
 
 all : $(NAME)
 

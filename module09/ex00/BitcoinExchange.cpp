@@ -6,15 +6,21 @@
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 11:37:09 by alboudje          #+#    #+#             */
-/*   Updated: 2023/05/15 15:42:01 by alboudje         ###   ########.fr       */
+/*   Updated: 2023/05/15 16:24:53 by alboudje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
+bool	is_empty(std::ifstream &file)
+{
+	return file.peek() == std::ifstream::traits_type::eof();
+}
+
 BitcoinExchange::BitcoinExchange(const char *input_file)
 {
 	_date_check = false;
+	_date_check_input = false;
 	_data_file.open("data.csv");
 	_input_file.open(input_file);
 	if (!_data_file.is_open())
@@ -178,6 +184,11 @@ void	BitcoinExchange::displayWithError(std::string *tok_array)
 	std::map<unsigned int, double>::iterator	rate;
 	bool										print_rate;
 	
+	if (tok_array[0] == "date " && _date_check_input == false)
+	{
+		_date_check_input = true;
+		return ;
+	}
 	print_rate = true;
 	if (_current_err_lvl == NO_ERROR)
 	{
@@ -227,6 +238,8 @@ void	BitcoinExchange::getExchange(void)
 {
 	if (!_data_file.is_open() || !_input_file.is_open())
 		throw std::ios_base::failure("Files are not opened");
+	if (is_empty(_data_file) || is_empty(_input_file))
+		throw std::ios_base::failure("Files are empty");
 	parseData();
 	displayInputData();
 }
