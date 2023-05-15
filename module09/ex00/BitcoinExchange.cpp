@@ -6,7 +6,7 @@
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 11:37:09 by alboudje          #+#    #+#             */
-/*   Updated: 2023/05/15 13:27:28 by alboudje         ###   ########.fr       */
+/*   Updated: 2023/05/15 15:42:01 by alboudje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ void	BitcoinExchange::insertData(const std::string *tok_array)
 	double				ex_rate = 0;
 
 	line++;
-	std::cerr << "LINE: " << line << std::endl;
+	//std::cerr << "LINE: " << line << std::endl;
 	if (checkDate(tok_array[0], date_array) == false)
 		throw std::ios_base::failure("Date parsing error");
 	date = getDateFormat(date_array);
@@ -148,10 +148,85 @@ void	BitcoinExchange::parseData(void)
 	}
 }
 
+ErrorLevel	BitcoinExchange::setErrorLvl(size_t &tok_nbr)
+{
+	std::stringstream	ss;
+
+	if (tok_nbr == 3)
+		return (PARSING_ERROR);
+	if (_current_parsing_date == false)
+		return (DATE_ERROR);
+	if (_current_date == INVALID_DATE)
+		return (FORMAT_ERROR);
+	if (_current_value > 1000)
+		return (OVERFLOW);
+	if (_current_value < 0)
+		return (UNDERFLOW);
+	return (NO_ERROR);
+}
+
+void	BitcoinExchange::displayWithError(std::string *tok_array)
+{
+	std::string									err_str[5] =
+	{
+		"parsing error",
+		"parsing error on date",
+		std::string("bad input => ") + tok_array[0],
+		"too large number",
+		"not a positive number"
+	};
+	std::map<unsigned int, double>::iterator	rate;
+	bool										print_rate;
+	
+	print_rate = true;
+	if (_current_err_lvl == NO_ERROR)
+	{
+		rate = _map_data.lower_bound(_current_date);
+		if (rate == _map_data.begin() && static_cast<unsigned>(_current_date) != rate->first)
+			print_rate = false;
+		if (print_rate)
+			std::cout << tok_array[0] << " => " << tok_array[1] << " = " << rate->second * _current_value << std::endl;
+		else
+			std::cerr << "Error: first date known is " << _map_data.begin()->first << std::endl;
+	}
+	else
+		std::cerr  << "Error: " << err_str[_current_err_lvl - 1] << "." << std::endl;
+}
+
+void	BitcoinExchange::displayInputData(void)
+{	
+	std::string			line;
+	std::string			token;
+	std::string			tok_array[2];
+	std::string			date_array[3];
+	std::stringstream	ss;
+	size_t				tok_nbr;
+
+	while (std::getline(_input_file, line))
+	{
+		tok_nbr = 0;
+		ss << line;
+		while (std::getline(ss, token, '|'))
+		{
+			//std::cout << token << std::endl;
+			tok_array[tok_nbr] = token;
+			tok_nbr++;
+			if (tok_nbr == 3)
+				break ;
+		}
+		_current_parsing_date = checkDate(tok_array[0], date_array);
+		_current_date = getDateFormat(date_array);
+		_current_value = std::strtod(tok_array[1].c_str(), NULL);
+		_current_err_lvl = setErrorLvl(tok_nbr);
+		displayWithError(tok_array);
+		ss.clear();
+	}
+}
+
 void	BitcoinExchange::getExchange(void)
 {
 	if (!_data_file.is_open() || !_input_file.is_open())
 		throw std::ios_base::failure("Files are not opened");
 	parseData();
-	std::cout << "Continue ..";
+	displayInputData();
 }
