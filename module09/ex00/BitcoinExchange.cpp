@@ -6,13 +6,13 @@
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 11:37:09 by alboudje          #+#    #+#             */
-/*   Updated: 2023/05/15 16:24:53 by alboudje         ###   ########.fr       */
+/*   Updated: 2023/05/16 14:07:59 by alboudje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-bool	is_empty(std::ifstream &file)
+bool	isEmpty(std::ifstream &file)
 {
 	return file.peek() == std::ifstream::traits_type::eof();
 }
@@ -110,7 +110,7 @@ double			BitcoinExchange::getExchangeRateFromStr(const std::string &rate)
 
 void	BitcoinExchange::insertData(const std::string *tok_array)
 {
-	std::string			date_array[3];
+	std::string			date_array[4];
 	static	unsigned	line = 0;
 	int					date = 0;
 	double				ex_rate = 0;
@@ -132,7 +132,7 @@ void	BitcoinExchange::parseData(void)
 {
 	std::string			line;
 	std::string			token;
-	std::string			tok_array[2];
+	std::string			tok_array[3];
 	std::stringstream	ss;
 	size_t				tok_nbr;
 
@@ -158,7 +158,7 @@ ErrorLevel	BitcoinExchange::setErrorLvl(size_t &tok_nbr)
 {
 	std::stringstream	ss;
 
-	if (tok_nbr == 3)
+	if (tok_nbr != 2)
 		return (PARSING_ERROR);
 	if (_current_parsing_date == false)
 		return (DATE_ERROR);
@@ -208,8 +208,8 @@ void	BitcoinExchange::displayInputData(void)
 {	
 	std::string			line;
 	std::string			token;
-	std::string			tok_array[2];
-	std::string			date_array[3];
+	std::string			tok_array[3];
+	std::string			date_array[4];
 	std::stringstream	ss;
 	size_t				tok_nbr;
 
@@ -238,7 +238,7 @@ void	BitcoinExchange::getExchange(void)
 {
 	if (!_data_file.is_open() || !_input_file.is_open())
 		throw std::ios_base::failure("Files are not opened");
-	if (is_empty(_data_file) || is_empty(_input_file))
+	if (isEmpty(_data_file) || isEmpty(_input_file))
 		throw std::ios_base::failure("Files are empty");
 	parseData();
 	displayInputData();

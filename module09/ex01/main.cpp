@@ -6,27 +6,19 @@
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:00:11 by alboudje          #+#    #+#             */
-/*   Updated: 2023/05/16 13:57:51 by alboudje         ###   ########.fr       */
+/*   Updated: 2023/05/16 14:14:41 by alboudje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
+#include "RNP.hpp"
 
 int	main(int argc, char **argv)
 {
+	(void)argv;
 	if (argc != 2)
 	{
-		std::cerr << "Usage: ./btc <input_file>" << std::endl;
+		std::cerr << "Usage: ./RNP <numbers>" << std::endl;
 		return (1);
-	}
-	BitcoinExchange	btc(argv[1]);
-	try
-	{
-		btc.getExchange();
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << "ERROR: " << e.what() << std::endl;
 	}
 	return (0);
 }

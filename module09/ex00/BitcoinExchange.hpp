@@ -6,7 +6,7 @@
 /*   By: alboudje <alboudje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 10:53:09 by alboudje          #+#    #+#             */
-/*   Updated: 2023/05/15 16:13:43 by alboudje         ###   ########.fr       */
+/*   Updated: 2023/05/16 13:59:51 by alboudje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ enum ErrorLevel
 	UNDERFLOW
 };
 
-bool	is_empty(std::ifstream &file);
+bool	isEmpty(std::ifstream &file);
 
 class BitcoinExchange
 {
